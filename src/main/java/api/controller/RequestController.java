@@ -14,20 +14,15 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/api/request")
 public class RequestController extends HttpServlet{
-    private InterfaceService  interfaceService;
-    public RequestController(){
-        interfaceService = new RequestService();
+    private InterfaceService service;
+
+    public RequestController() {
+        this.service = new RequestService();
+
     }
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json; charset=UTF-8");
-        PrintWriter out = resp.getWriter();
-        try {
-            List<Object> requests=interfaceService;
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-    }
+        
+    
+
     }
 
 

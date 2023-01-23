@@ -20,8 +20,7 @@ public class RequestService implements InterfaceService {
 
     @Override
     public List<Object> index() {
-        // TODO Auto-generated method stub
-        return null;
+        return requestModel.index();
     }
     
 }

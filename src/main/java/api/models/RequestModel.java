@@ -1,6 +1,13 @@
 package api.models;
-
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import api.payloads.RequestPayLoads;
+import api.repositories.mysql.MysqlConection;
+
 
 public class RequestModel {
     private int id; 
@@ -8,6 +15,8 @@ public class RequestModel {
     private Date date;
     private String description;
     private String type;
+    private MysqlConection repository=new MysqlConection();
+    private String table= "request";
     public RequestModel() {
     }
     public RequestModel(int id, String name, Date date, String description, String type) {
@@ -47,7 +56,28 @@ public class RequestModel {
     public void setType(String type) {
         this.type = type;
     }
-    
+    public List<Object> index(){
+        try {
+            Statement statement = repository.conn.createStatement();
+            String mysqulString = String.format("SELECT * FROM %s;", table);
+            ResultSet rs = statement.executeQuery( mysqulString);
+            List<Object> requests = new ArrayList<>();
+            while (rs.next()) {
+                RequestPayLoads request = new RequestPayLoads();
+                request.setId(rs.getInt("id_request"));
+                request.setName(rs.getString("name_request"));
+                request.setDate(rs.getDate("date_request"));
+                request.setType(rs.getString("type_request"));
+                request.setDescription(rs.getString("description_request"));
+                requests.add(request);
+            } 
+            return requests;
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+            return null;
+        }
+        
+    } 
 }
 
 
