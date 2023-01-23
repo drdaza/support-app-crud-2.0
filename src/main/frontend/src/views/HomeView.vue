@@ -13,5 +13,5 @@
   </main>
 </template>
 <style lang="scss">
-@import "../Sass/Home.scss"
+@import "../Sass/Home.scss";
 </style>
