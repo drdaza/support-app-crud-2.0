@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class MysqlConection {
     public Connection conn;
     private String driver = "com.mysql.cj.jdbc.Driver";
-    private String url = "jdbc:mysql://localhost:3306/java_test_srvlets?" +
+    private String url = "jdbc:mysql://localhost:3306/java_support_app?" +
     "useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     public MysqlConection(){
         if(conn==null){

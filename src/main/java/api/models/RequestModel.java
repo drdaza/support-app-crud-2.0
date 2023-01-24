@@ -66,11 +66,12 @@ public class RequestModel {
                 RequestPayLoads request = new RequestPayLoads();
                 request.setId(rs.getInt("id_request"));
                 request.setName(rs.getString("name_request"));
-                request.setDate(rs.getDate("date_request"));
+                request.setDate(rs.getString("date_request"));
                 request.setType(rs.getString("type_request"));
                 request.setDescription(rs.getString("description_request"));
                 requests.add(request);
             } 
+            
             return requests;
         } catch (Exception e) {
             System.out.println("error: " + e.getMessage());

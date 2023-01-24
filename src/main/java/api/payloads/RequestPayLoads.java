@@ -5,7 +5,7 @@ import java.sql.Date;
 public class RequestPayLoads {
     private int id; 
     private String name;
-    private Date date;
+    private String date;
     private String description;
     private String type;
     public int getId() {
@@ -20,10 +20,10 @@ public class RequestPayLoads {
     public void setName(String name) {
         this.name = name;
     }
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
     public String getDescription() {
