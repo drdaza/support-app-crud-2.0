@@ -1,0 +1,9 @@
+@mixin buton ($width,$height,$background-color,$font-size) {
+    width: $width ;
+    height: $height;
+    background: none;
+    color: white;
+    border-radius: 10px;
+    background-color: $background-color;
+    font-size: $font-size;
+}
