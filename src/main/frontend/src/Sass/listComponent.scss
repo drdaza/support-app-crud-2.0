@@ -1,0 +1,44 @@
+@import "variables";
+@import "mixin.scss";
+
+body {
+    display: flex;
+    align-items:initial;
+    justify-content: left;
+margin: 3% 0 3% 5%;
+}
+.container-list {
+
+}
+.titulo-lista {
+    font-family: $font-family;
+    color: white;
+    
+}
+.container-input {
+    padding: 0.5rem;
+    display: flex;
+
+}
+.inputs {
+    width: 100%;
+    border-radius: 10%;
+}
+.edit {
+    background-color:$resetbuton ;
+    cursor: pointer;
+    margin: 0 0.5rem 0 0.5rem;
+    border-radius: 12%;
+    color: white;
+    font-family:$font-family ;
+}
+.delete {
+    background-color: $cancelbuton;
+    cursor: pointer;
+    border-radius: 12%;
+    color: white;
+    font-family:$font-family ;
+}
+.delete:hover {
+  
+}
