@@ -1,9 +1,11 @@
+<script setup>
+import Header from "../components/Header.vue";
+</script>
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="header">
+    <Header></Header>
   </div>
 </template>
-
-<style>
+<style scoped>
 
 </style>
