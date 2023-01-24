@@ -23,6 +23,10 @@
 
 .buton-home {
     @include buton (30%,5rem,$backgroundColor,5vh);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: $font-family;
 }
 

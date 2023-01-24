@@ -1,14 +1,12 @@
 <script setup>
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
   <main id = "home-view">
     <div class = "background-home">
       <img id="suport-logo" src="../components/img/support-logo.png" alt="Home Photo">
-      <<router-link ></router-link>
-      <button class = "buton-home" >
-        Go to the Form
-      </button>
+      <RouterLink to = "/form" class = "buton-home"> Go to the Form</RouterLink>
     </div>
   </main>
 </template>
