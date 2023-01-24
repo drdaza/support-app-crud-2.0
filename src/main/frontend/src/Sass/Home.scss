@@ -1,4 +1,28 @@
 @import "variables";
+@import "mixin.scss";
+
+#home-view {
+
+}
 .background-home {
     background-color: $primaryColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 41rem;
+    margin:  5% auto 0 auto;
+
 }
+
+#suport-logo {
+    width: 40%;
+   
+}
+
+.buton-home {
+    @include buton (30%,5rem,$backgroundColor,5vh);
+    text-align: center;
+}
+

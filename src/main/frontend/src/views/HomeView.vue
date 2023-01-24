@@ -2,11 +2,11 @@
 </script>
 
 <template>
-  <main>
+  <main id = "home-view">
     <div class = "background-home">
       <img id="suport-logo" src="../components/img/support-logo.png" alt="Home Photo">
-
-      <button>
+      <<router-link ></router-link>
+      <button class = "buton-home" >
         Go to the Form
       </button>
     </div>
