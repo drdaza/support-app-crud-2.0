@@ -1,5 +1,6 @@
 package api.controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -37,7 +38,23 @@ public class RequestController extends HttpServlet{
             System.out.println(e.getMessage());
         }
     }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json ; charset=utf-8");
+        resp.addHeader("Access-Control-Allow-Origin", "*");
+        PrintWriter out = resp.getWriter();
 
+        BufferedReader reader = req.getReader();
+        
+        try {
+            Object request = service.Save(reader);
+            out.println(View.show(request));
+            resp.setStatus(HttpServletResponse.SC_CREATED);
+        } catch (Exception e) {
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            System.out.println("Error controller: " + e.getMessage());
+        }
+    }
     
         
     
