@@ -1,20 +1,14 @@
 @import "variables";
 @import "mixin.scss";
 
-body {
-    display: flex;
-    align-items:initial;
-    justify-content: left;
-margin: 3% 0 3% 5%;
-}
-.container-list {
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-height: 50vh;
+#list-component {
+  display: flex;
+  flex-direction: column;
+  align-items: initial;
+  justify-content: left;
+  margin: 3% 0 3% 5%;
 }
 .titulo-lista {
-    font-family: $font-family;
-    color: white;
-    
+  font-family: $font-family;
+  color: white;
 }
