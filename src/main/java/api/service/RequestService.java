@@ -42,5 +42,19 @@ public class RequestService implements InterfaceService {
         
     }
 
+
+    @Override
+    public List<Object> delete(BufferedReader body) {
+        try {
+            RequestPayLoads requestPayLoads = gson.fromJson(body, RequestPayLoads.class);
+            List<Object> requestResponse = requestModel.delete(requestPayLoads); 
+            return requestResponse;
+        } catch (Exception e) {
+            System.out.println("Error servicio: "+ e.getMessage());
+            return null;
+        }
+
+    }
+
     
 }

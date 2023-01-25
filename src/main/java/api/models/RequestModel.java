@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedReader;
 import java.sql.Date;
 
 import api.payloads.RequestPayLoads;
@@ -85,21 +86,16 @@ public class RequestModel {
     } 
     public RequestPayLoads save(RequestPayLoads request) throws SQLException{
         
-        System.out.println(Date.valueOf(request.getDate()));
+        
         String mySql_Insert = String.format("insert into %s values (?,?,?,?,?)", table);
         PreparedStatement preparedStatement = repository.conn.prepareStatement(mySql_Insert);
-        System.out.println("llego aqui");
         preparedStatement.setInt(1, request.getId());
-        System.out.println("llego aqui");
         preparedStatement.setString(2, request.getName());
-        System.out.println("llego aqui");
         preparedStatement.setDate(3, Date.valueOf(request.getDate()));
-        System.out.println("llego aqui");
         preparedStatement.setString(4, request.getType());
-        System.out.println("llego aqui");
         preparedStatement.setString(5, request.getDescription());
-        System.out.println("llego aqui");
-        /* ,request.getId(),request.getName(),Date.valueOf(request.getDate()),request.getType(),request.getDescription() */
+        
+        
         preparedStatement.executeUpdate();
         preparedStatement.close();
 
@@ -116,6 +112,16 @@ public class RequestModel {
         }
         
         return request;
+    }
+    public List<Object> delete(RequestPayLoads requestPayLoads) throws SQLException{
+        String mySql_delete = String.format("DELETE FROM %s WHERE id_request=?;", table);
+        PreparedStatement preparedStatement = repository.conn.prepareStatement(mySql_delete);
+        preparedStatement.setInt(1, requestPayLoads.getId());
+
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+
+        return index();
     }
 }
 
