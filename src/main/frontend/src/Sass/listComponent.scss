@@ -8,37 +8,13 @@ body {
 margin: 3% 0 3% 5%;
 }
 .container-list {
-
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+height: 50vh;
 }
 .titulo-lista {
     font-family: $font-family;
     color: white;
     
-}
-.container-input {
-    padding: 0.5rem;
-    display: flex;
-
-}
-.inputs {
-    width: 100%;
-    border-radius: 10%;
-}
-.edit {
-    background-color:$resetbuton ;
-    cursor: pointer;
-    margin: 0 0.5rem 0 0.5rem;
-    border-radius: 12%;
-    color: white;
-    font-family:$font-family ;
-}
-.delete {
-    background-color: $cancelbuton;
-    cursor: pointer;
-    border-radius: 12%;
-    color: white;
-    font-family:$font-family ;
-}
-.delete:hover {
-  
 }
