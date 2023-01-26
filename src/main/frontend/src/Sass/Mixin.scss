@@ -1,9 +1,16 @@
-@mixin buton ($width,$height,$background-color,$font-size) {
-    width: $width ;
-    height: $height;
-    background: none;
-    color: white;
-    border-radius: 10px;
-    background-color: $background-color;
-    font-size: $font-size;
+@mixin button($width, $height, $background-color, $font-size) {
+  width: $width;
+  height: $height;
+  background: none;
+  color: white;
+  border-radius: 10px;
+  background-color: $background-color;
+  font-size: $font-size;
+  cursor: pointer;
+  border: none;
+}
+@mixin movil($media) {
+  @media screen and (max-width: $media) {
+    @content;
+  }
 }
