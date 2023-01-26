@@ -1,11 +1,14 @@
 package api.payloads;
 
-import java.sql.Date;
+
+
+import java.time.LocalDate;
+
 
 public class RequestPayLoads {
     private int id; 
     private String name;
-    private String date;
+    private LocalDate date;
     private String description;
     private String type;
     public int getId() {
@@ -20,10 +23,10 @@ public class RequestPayLoads {
     public void setName(String name) {
         this.name = name;
     }
-    public String getDate() {
+    public LocalDate getDate(){
         return date;
     }
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
     public String getDescription() {

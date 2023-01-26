@@ -1,11 +1,13 @@
 package api.service;
 
+import java.io.BufferedReader;
 import java.util.List;
 
 import com.google.gson.Gson;
 
 import api.contract.InterfaceService;
 import api.models.RequestModel;
+import api.payloads.RequestPayLoads;
 
 public class RequestService implements InterfaceService {
     private RequestModel requestModel;
@@ -23,5 +25,36 @@ public class RequestService implements InterfaceService {
         
         return requestModel.index();
     }
+
+
+    @Override
+    public Object Save(BufferedReader body) {
+        try {
+            
+            RequestPayLoads requestPayLoads = gson.fromJson(body, RequestPayLoads.class);
+            
+            RequestPayLoads addedRequest = requestModel.save(requestPayLoads);
+            return addedRequest;
+        } catch (Exception e) {
+            System.out.println("Error servicio: "+ e.getMessage());
+            return null;
+        }
+        
+    }
+
+
+    @Override
+    public List<Object> delete(BufferedReader body) {
+        try {
+            RequestPayLoads requestPayLoads = gson.fromJson(body, RequestPayLoads.class);
+            List<Object> requestResponse = requestModel.delete(requestPayLoads); 
+            return requestResponse;
+        } catch (Exception e) {
+            System.out.println("Error servicio: "+ e.getMessage());
+            return null;
+        }
+
+    }
+
     
 }

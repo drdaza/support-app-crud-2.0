@@ -1,9 +1,14 @@
 package api.models;
-import java.sql.Date;
+
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedReader;
+import java.sql.Date;
 
 import api.payloads.RequestPayLoads;
 import api.repositories.mysql.MysqlConection;
@@ -66,7 +71,7 @@ public class RequestModel {
                 RequestPayLoads request = new RequestPayLoads();
                 request.setId(rs.getInt("id_request"));
                 request.setName(rs.getString("name_request"));
-                request.setDate(rs.getString("date_request"));
+                request.setDate(rs.getDate("date_request").toLocalDate());
                 request.setType(rs.getString("type_request"));
                 request.setDescription(rs.getString("description_request"));
                 requests.add(request);
@@ -79,6 +84,45 @@ public class RequestModel {
         }
         
     } 
+    public RequestPayLoads save(RequestPayLoads request) throws SQLException{
+        
+        
+        String mySql_Insert = String.format("insert into %s values (?,?,?,?,?)", table);
+        PreparedStatement preparedStatement = repository.conn.prepareStatement(mySql_Insert);
+        preparedStatement.setInt(1, request.getId());
+        preparedStatement.setString(2, request.getName());
+        preparedStatement.setDate(3, Date.valueOf(request.getDate()));
+        preparedStatement.setString(4, request.getType());
+        preparedStatement.setString(5, request.getDescription());
+        
+        
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+
+        Statement statement = repository.conn.createStatement();
+        String mySql_Select = String.format("SELECT * FROM %s WHERE id_request=%s;",table,request.getId());
+
+        ResultSet resultSet = statement.executeQuery(mySql_Select);
+        while (resultSet.next()) {
+            request.setId(resultSet.getInt("id_request"));
+            request.setName(resultSet.getString("name_request"));
+            request.setDate(resultSet.getDate("date_request").toLocalDate());
+            request.setType(resultSet.getString("type_request"));
+            request.setDescription(resultSet.getNString("description_request"));
+        }
+        
+        return request;
+    }
+    public List<Object> delete(RequestPayLoads requestPayLoads) throws SQLException{
+        String mySql_delete = String.format("DELETE FROM %s WHERE id_request=?;", table);
+        PreparedStatement preparedStatement = repository.conn.prepareStatement(mySql_delete);
+        preparedStatement.setInt(1, requestPayLoads.getId());
+
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+
+        return index();
+    }
 }
 
 
