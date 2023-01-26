@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from "vue";
-import request from "../API-call/requestRepository/request";
+import { RequestStore } from "../stores/RequestStore";
+
+let requestStore = RequestStore();
 let id = ref(0);
 let name = ref("");
 let date = ref("");
@@ -19,9 +21,8 @@ const postMethod = () => {
     type: type.value,
     description: description.value,
   };
-  request.create(temporalObject);
+  requestStore.postNewRequest(temporalObject);
 };
-
 </script>
 
 <template>
