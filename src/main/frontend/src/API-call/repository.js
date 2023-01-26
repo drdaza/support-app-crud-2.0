@@ -11,5 +11,5 @@ export default class repository{
     }
     chooseApi(){ 
         if (this.api == "request") return new request();
-}
+    }
 }
