@@ -20,5 +20,12 @@ export const RequestStore = defineStore({
       let json = await Response.create(data);
       return json;
     },
+    async deleteRequest(data) {
+      const repositoryApi = new repository("request");
+      const Response = repositoryApi.chooseApi();
+
+      let json = await Response.delete(data);
+      return json;
+    },
   },
 });
