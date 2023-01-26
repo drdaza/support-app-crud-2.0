@@ -123,6 +123,33 @@ public class RequestModel {
 
         return index();
     }
+    public RequestPayLoads update(RequestPayLoads requestPayLoads) throws SQLException{
+        String mySql_Update = String.format("UPDATE %s SET id_request=?, name_request=?,date_request=?,type_request=?,description_request=? WHERE id_request=?;", table);
+        PreparedStatement preparedStatement = repository.conn.prepareStatement(mySql_Update);
+        preparedStatement.setInt(1, requestPayLoads.getId());
+        preparedStatement.setString(2, requestPayLoads.getName());
+        preparedStatement.setDate(3, Date.valueOf(requestPayLoads.getDate()));
+        preparedStatement.setString(4, requestPayLoads.getType());
+        preparedStatement.setString(5, requestPayLoads.getDescription());
+        preparedStatement.setInt(6, requestPayLoads.getId());
+
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+
+        Statement statement = repository.conn.createStatement();
+        String mySql_Select = String.format("SELECT * FROM %s WHERE id_request=%s;",table,requestPayLoads.getId());
+
+        ResultSet resultSet = statement.executeQuery(mySql_Select);
+        while (resultSet.next()) {
+            requestPayLoads.setId(resultSet.getInt("id_request"));
+            requestPayLoads.setName(resultSet.getString("name_request"));
+            requestPayLoads.setDate(resultSet.getDate("date_request").toLocalDate());
+            requestPayLoads.setType(resultSet.getString("type_request"));
+            requestPayLoads.setDescription(resultSet.getNString("description_request"));
+        }
+        
+
+        return requestPayLoads;}
 }
 
 

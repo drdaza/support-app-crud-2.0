@@ -73,7 +73,23 @@ public class RequestController extends HttpServlet{
         }
 
     }
-    
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json ; charset=utf-8");
+        resp.addHeader("Access-Control-Allow-Origin", "*");
+        PrintWriter out = resp.getWriter();
+
+        BufferedReader reader = req.getReader();
+        
+        try {
+            Object request = service.update(reader);
+            out.println(View.show(request));
+            resp.setStatus(HttpServletResponse.SC_CREATED);
+        } catch (Exception e) {
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            System.out.println("Error controller: " + e.getMessage());
+        }
+    }
         
     
 
