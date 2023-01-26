@@ -4,16 +4,16 @@
 
 <template>
     <div class="wrapper">
-        <h2>Form</h2>
+        <h2 class = "titulo-lista">Form</h2>
         <div class="container-form">
             <div class = "input-zone">
-                <Label>Enter your Name</Label>
+                <Label class = "lable-item">Enter your Name</Label>
                 <input class="input-item" type="text">
             </div>
-            <div class = "input-zone"> <Label>Enter the date request</Label>
+            <div class = "input-zone"> <Label class = "lable-item">Enter the date request</Label>
                 <input class="input-item" type="text">
             </div>
-            <div class = "input-zone"><Label>Type of request</Label>
+            <div class = "input-zone"><Label class = "lable-item">Type of request</Label>
                 <input class="input-item" type="text">
             </div>
         </div>
