@@ -23,6 +23,7 @@ const postMethod = () => {
   };
   requestStore.postNewRequest(temporalObject);
 };
+
 </script>
 
 <template>

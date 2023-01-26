@@ -32,4 +32,11 @@ export default class request {
     });
     return response;
   }
+  async delete(data) {
+    const response = await fetch(this.url, {
+      method: "DELETE",
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
 }
