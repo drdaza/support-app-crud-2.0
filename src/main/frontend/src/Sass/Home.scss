@@ -17,7 +17,7 @@
 }
 
 .buton-home {
-  @include buton(30%, 5rem, $backgroundColor, 5vh);
+  @include button(30%, 5rem, $backgroundColor, 5vh);
   display: flex;
   align-items: center;
   justify-content: center;

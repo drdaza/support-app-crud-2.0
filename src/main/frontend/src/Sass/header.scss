@@ -12,8 +12,9 @@
     justify-content: space-between;
     border-radius: 8px;
     #support-logo {
-      width: 20%;
+      width: 16%;
       border-radius: 8px 0 0 8px;
+      
     }
     #nav-div {
       width: 60%;
@@ -25,7 +26,7 @@
   }
 }
 #navbar {
-  height: 7rem;
+  height: 5rem;
   display: flex;
   align-items: flex-end;
   ul {
@@ -34,19 +35,22 @@
     align-items: flex-start;
     justify-content: space-evenly;
     list-style: none;
+    margin: 0;
     .router-link-active {
       width: 100%;
       display: flex;
       flex-direction: row;
-
-      .nav-link {
-        font-family: $font-family;
-        text-decoration: none;
-        color: white;
-      }
-    }
-    :hover {
-      background-color: red;
+      justify-content: center;
+      font-family: $font-family;
+      text-decoration: none;
+      color: white;
     }
   }
 }
+.router-link-active:hover {
+  background-color: $backgroundColor;
+}
+.li-item {
+  width: 90%;
+}
+

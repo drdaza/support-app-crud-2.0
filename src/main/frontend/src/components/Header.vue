@@ -2,7 +2,7 @@
 import { RouterLink } from "vue-router";
 </script>
 <template>
-  <main id="header-component">
+  <div id="header-component">
     <header>
       <img
         src="../components/img/support-logo.png"
@@ -13,15 +13,15 @@ import { RouterLink } from "vue-router";
         <h1>Support App</h1>
         <nav id="navbar">
           <ul>
-            <li>
+            <li class="li-item">
               <RouterLink to="/" class="router-link-active"> HOME</RouterLink>
             </li>
-            <li>
+            <li class="li-item">
               <RouterLink to="/list" class="router-link-active">
                 LIST</RouterLink
               >
             </li>
-            <li>
+            <li class="li-item">
               <RouterLink to="/form" class="router-link-active">
                 FORM</RouterLink
               >
@@ -30,7 +30,7 @@ import { RouterLink } from "vue-router";
         </nav>
       </div>
     </header>
-  </main>
+  </div>
 </template>
 <style lang="scss" scoped>
 @import "../Sass/header.scss";

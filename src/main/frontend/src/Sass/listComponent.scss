@@ -4,11 +4,18 @@
 #list-component {
   display: flex;
   flex-direction: column;
-  align-items: initial;
-  justify-content: left;
-  margin: 3% 0 3% 5%;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
 }
+#list-id {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .titulo-lista {
   font-family: $font-family;
   color: white;
+  width: 90%;
 }
