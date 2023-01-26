@@ -9,7 +9,13 @@
 }
 .container-input {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 10px;
+  p{
+    color: white;
+    font-family: $font-family;
+  }
 }
 
 .inputs {
@@ -19,11 +25,16 @@
   padding-left: 5px;
   font-size: 1.4rem;
 }
+.input-zone{
+  width: 60%;
+}
 .edit {
   margin: 0 0.5rem 0 0.5rem;
   @include button(12%, 2.5rem, $primaryColor, 1rem);
   margin: 0 5px 0 5px;
+  width: 40%;
 }
 .delete {
   @include button(12%, 2.5rem, $cancelbuton, 1rem);
+  width: 50%;
 }

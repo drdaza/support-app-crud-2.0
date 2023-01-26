@@ -10,7 +10,7 @@ export const RequestStore = defineStore({
       const repositoryApi = new repository("request");
       let api = repositoryApi.chooseApi();
 
-      console.log(api);
+      
       this.Requests = await api.getAll();
     },
     async postNewRequest(data) {
