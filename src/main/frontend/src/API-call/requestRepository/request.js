@@ -30,5 +30,6 @@ export default class request {
       method: "POST",
       body: JSON.stringify(data),
     });
+    return response;
   }
 }
