@@ -1,9 +1,16 @@
+<script setup>
+import Header from "../components/Header.vue";
+import Footer from "../components/Footer.vue";
+import listComponent from "../components/listComponent.vue";
+
+</script>
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="header">
+    <Header></Header>
+    <listComponent></listComponent>
+    <Footer></Footer>
   </div>
 </template>
-
-<style>
+<style scoped>
 
 </style>

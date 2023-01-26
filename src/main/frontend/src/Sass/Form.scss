@@ -1,0 +1,53 @@
+@import "variables";
+@import "mixin.scss";
+
+.wrapper {
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: center;
+width: 100%;
+}
+
+.input-zone {
+width: 80%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+input {
+    width: 60%;
+}
+}
+
+
+.container-form {
+display: flex;
+flex-direction: column;
+width: 80%;
+align-items: flex-end;
+}
+
+.description-input {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 80%;
+
+}
+.buton-zone {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+
+    .button-send {
+       @include buton() 
+    }
+    
+    .button-cancel {
+        
+    }
+}

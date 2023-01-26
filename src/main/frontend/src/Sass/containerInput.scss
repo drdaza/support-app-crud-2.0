@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixin.scss";
+.container-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 50vh;
+  width: 45vw;
+}
+.container-input {
+  display: flex;
+}
+
+.inputs {
+  width: 100%;
+  height: 2rem;
+  border-radius: 10px;
+}
+.edit {
+//   background-color: $resetbuton;
+//   cursor: pointer;
+  margin: 0 0.5rem 0 0.5rem;
+//   border-radius: 12%;
+//   color: white;
+//   font-family: $font-family;
+@include buton(12%, 2.5rem,$primaryColor, 1rem);
+margin: 0 5px 0 5px;
+}
+.delete {
+    @include buton(12%, 2.5rem,$cancelbuton, 1rem);
+}

@@ -1,0 +1,28 @@
+@import "variables";
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    
+}
+.container {
+ 
+    width: 90%;
+    background-color: $primaryColor;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.copy  {
+    color: white;
+    font-family: $font-family;
+    margin-left: 5rem;
+  
+}
+.titulo {
+    color: white;
+    font-family: $font-family;
+   margin-right: 18rem;
+}
