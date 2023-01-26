@@ -56,5 +56,20 @@ public class RequestService implements InterfaceService {
 
     }
 
+
+    @Override
+    public Object update(BufferedReader body) {
+        try {
+            
+            RequestPayLoads requestPayLoads = gson.fromJson(body, RequestPayLoads.class);
+            
+            RequestPayLoads addedRequest = requestModel.update(requestPayLoads);
+            return addedRequest;
+        } catch (Exception e) {
+            System.out.println("Error servicio: "+ e.getMessage());
+            return null;
+        }
+    }
+
     
 }
