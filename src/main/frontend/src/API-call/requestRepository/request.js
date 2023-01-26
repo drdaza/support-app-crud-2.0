@@ -12,7 +12,7 @@ export default class request {
 
     let requests = [];
     for (const request of json) {
-      console.log(request);
+      
       let temporalRequest = new requestPayload(
         request.id,
         request.name,
