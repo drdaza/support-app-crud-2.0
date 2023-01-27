@@ -59,6 +59,8 @@ Desarrollar un MVP básico para que los empleados puedan realizar sus consultas 
 ## PARTES DEL PROYECTO
 
 ### PROTOTIPADO
+<img width="577" alt="Captura de pantalla 2023-01-26 a las 13 45 16" src="https://user-images.githubusercontent.com/116883797/215057840-bfc074ce-a4bf-4ae8-839d-eeac6fa49fbd.png">
+<img width="1232" alt="Captura de pantalla 2023-01-27 a las 8 24 08" src="https://user-images.githubusercontent.com/116883797/215057948-341f33e0-f173-462e-83ab-173c6675a331.png">
 
 ### Home
 
