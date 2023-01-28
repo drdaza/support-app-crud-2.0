@@ -26,6 +26,8 @@ public class RequestController extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json ; charset=utf-8");
         resp.addHeader("Access-Control-Allow-Origin", "*");
+        resp.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
+
         PrintWriter out = resp.getWriter();
 
         try {
@@ -42,6 +44,8 @@ public class RequestController extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json ; charset=utf-8");
         resp.addHeader("Access-Control-Allow-Origin", "*");
+        resp.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
+
         PrintWriter out = resp.getWriter();
 
         BufferedReader reader = req.getReader();
@@ -57,8 +61,15 @@ public class RequestController extends HttpServlet{
     }
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
+
+        
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        resp.addHeader("Access-Control-Allow-Credentials", "true");
+        resp.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        
+       
         resp.setContentType("application/json ; charset=utf-8");
-        resp.addHeader("Access-Control-Allow-Origin", "*");
         PrintWriter out = resp.getWriter();
 
         BufferedReader reader = req.getReader();
@@ -76,7 +87,10 @@ public class RequestController extends HttpServlet{
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json ; charset=utf-8");
+        
         resp.addHeader("Access-Control-Allow-Origin", "*");
+        resp.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
+
         PrintWriter out = resp.getWriter();
 
         BufferedReader reader = req.getReader();
@@ -91,8 +105,17 @@ public class RequestController extends HttpServlet{
         }
     }
         
-    
+    @Override
+    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.addHeader("Access-Control-Allow-Origin", "*");
+        resp.addHeader("Access-Control-Allow-Credentials", "true");
+        resp.addHeader("Access-Control-Allow-Methods", "DELETE");
+        
+       
+        resp.setContentType("application/json ; charset=utf-8");
 
+        
+    }
     }
 
 

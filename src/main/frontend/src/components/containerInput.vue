@@ -17,6 +17,7 @@ for (let requestElement of requestStore.Requests) {
     description: requestElement.description,
   };
   requestStore.deleteRequest(temporalObject);
+
   }
 }
 }
